@@ -4,6 +4,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import Loading from '../components/Loading';
 import Sidebar from '../components/Sidebar';
 import { MenuIcon } from 'lucide-react';
+import MobileSidebar from '@/components/MobileSidebar';
 
 export default function DashboardLayout() {
   const { userId, isLoaded } = useAuth();
@@ -24,13 +25,17 @@ export default function DashboardLayout() {
 
   return (
     <div className="flex min-h-screen">
-      <Sidebar />
+      <div className="hidden md:flex">
+        <Sidebar />
+      </div>
 
       <main className="flex-1 bg-gray-50">
         <div className="flex items-center p-4 shadow">
-          <button className="md:hidden rounded-full p-2 active:bg-slate-200">
-            <MenuIcon />
-          </button>
+          <MobileSidebar>
+            <button className="md:hidden rounded-full p-2 active:bg-slate-200">
+              <MenuIcon />
+            </button>
+          </MobileSidebar>
           <div className="ml-auto flex">
             <SignedIn>
               <UserButton afterSignOutUrl="/" />

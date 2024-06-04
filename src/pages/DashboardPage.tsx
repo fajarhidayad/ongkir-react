@@ -32,6 +32,7 @@ export default function DashboardPage() {
       <section className="grid grid-cols-2 gap-x-10">
         {cardLinks.map((item) => (
           <Link
+            key={item.href}
             to={item.href}
             className="rounded-xl border shadow p-5 flex items-center hover:shadow-lg transition-shadow duration-200"
           >

@@ -1,11 +1,15 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Toaster } from './components/ui/toaster';
+import DashboardLayout from './layouts/DashboardLayout';
+import RootLayout from './layouts/RootLayout';
+import DashboardPage from './pages/DashboardPage';
 import HomePage from './pages/HomePage';
 import SignInPage from './pages/SignInPage';
-import DashboardPage from './pages/DashboardPage';
-import RootLayout from './layouts/RootLayout';
-import DashboardLayout from './layouts/DashboardLayout';
 import SimulasiPage from './pages/SimulasiPage';
 import LacakPage from './pages/LacakPage';
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -41,7 +45,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <Toaster />
+    </QueryClientProvider>
+  );
 }
 
 export default App;
