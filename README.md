@@ -1,30 +1,59 @@
-# React + TypeScript + Vite
+# OngkiReact
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplikasi ini dibuat dengan bantuan package React dan API dari RajaOngkir untuk membantu pengguna dalam memeriksa tarif pengiriman barang ke berbagai daerah di Indonesia.
 
-Currently, two official plugins are available:
+## Fitur Utama
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Pencarian Ongkos Kirim**:
+   Memungkinkan pengguna untuk memasukkan detail pengiriman termasuk asal, tujuan, dan berat barang. Pengguna juga bisa memilih kurir yang diinginkan untuk melihat tarif pengiriman.
+2. **Autentikasi**:
+   Pengguna diharuskan memiliki akun terlebih dahulu dengan akun Google untuk bisa menggunakan fitur pencarian Ongkir
 
-## Expanding the ESLint configuration
+## Teknologi
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **React**:
+   Library utama yang digunakan untuk membangun Frontend
+2. **Tailwind CSS**
+   Package yang digunakan untuk styling tampilan web agar lebih responsif
+3. **Typescript**
+   Menambahkan tipe statis pada JavaScript untuk meningkatkan kualitas kode dan mengurangi bug.
+4. **Axios**:
+   Digunakan untuk melakukan permintaan HTTP ke API Ongkir, memastikan komunikasi yang lancar antara aplikasi dan API.
+5. **@tanstack/react-query**:
+   Server state management untuk fetching data yang selalu up to date agar meningkatkan User Experience
+6. **shadcn/ui**:
+   Komponen yang telah siap digunakan dan lebih ringan untuk digunakan.
 
-- Configure the top-level `parserOptions` property like this:
+# Instalasi dan Penggunaan
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+1. **Clone repositori**:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   ```sh
+   git clone https://github.com/fajarhidayad/ongkir-react.git
+   ```
+
+2. **Install dependensi dengan `pnpm` atau `npm`**:
+
+   Untuk menginstal semua dependensi yang ada di `package.json`:
+
+   ```sh
+   // menggunakan pnpm
+   pnpm install
+
+   // menggunakan npm
+   npm install
+   ```
+
+3. **Jalankan**:
+
+   ```sh
+   // menggunakan pnpm
+   pnpm dev
+
+   // menggunakan npm
+   npm run dev
+   ```
+
+4. **Buka di browser**:
+
+   Akses aplikasi di `http://localhost:5173`

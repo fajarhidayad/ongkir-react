@@ -166,14 +166,21 @@ export default function SimulasiPage() {
                   </div>
                   <div className="ml-auto space-y-2">
                     <p className="font-semibold text-xl text-slate-700">
-                      Rp. {item.cost[0].value}
+                      Rp{item.cost[0].value}
                     </p>
                     <p className="text-slate-500">
-                      {item.cost[0].etd} {courier !== 'pos' && 'hari'}
+                      {item.cost[0].etd.toLowerCase().includes('hari')
+                        ? item.cost[0].etd
+                        : item.cost[0].etd + ' hari'}
                     </p>
                   </div>
                 </li>
               ))}
+            {results[0].costs.length < 1 && (
+              <li className="text-2xl font-semibold text-slate-600 text-center">
+                Data tidak ditemukan
+              </li>
+            )}
           </ul>
         </section>
       )}

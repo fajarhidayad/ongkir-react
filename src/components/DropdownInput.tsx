@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { City } from '@/api/ongkir';
@@ -17,6 +17,7 @@ export default function DropdownInput({
   const [value, setValue] = useState('');
   const [dropdown, setDropdown] = useState(false);
   const [filteredValue, setFilteredValue] = useState<City[]>([]);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   const filterValues = useCallback(() => {
     if (cities && value.length > 0) {
@@ -29,14 +30,28 @@ export default function DropdownInput({
     }
   }, [value, cities]);
 
+  const handleClickOutside = (e: MouseEvent) => {
+    if (ref.current && !ref.current.contains(e.target as Node)) {
+      setDropdown(false);
+    }
+  };
+
   useEffect(() => {
     if (dropdown) {
       filterValues();
     }
   }, [filterValues, value, dropdown]);
 
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="mb-5 relative">
+    <div className="mb-5 relative" ref={ref}>
       <Label>{label}</Label>
       <Input
         placeholder={placeholder}
