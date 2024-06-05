@@ -16,7 +16,6 @@ export default function RootLayout() {
       publishableKey={PUBLISHABLE_KEY}
       routerPush={(to) => navigate(to)}
       routerReplace={(to) => navigate(to, { replace: true })}
-      signInFallbackRedirectUrl={'/dashboard'}
     >
       <Main>
         <Outlet />

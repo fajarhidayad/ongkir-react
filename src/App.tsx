@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 import SignInPage from './pages/SignInPage';
 import SimulasiPage from './pages/SimulasiPage';
 import LacakPage from './pages/LacakPage';
+import ErrorPage from './pages/ErrorPage';
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const router = createBrowserRouter([
         ],
       },
     ],
+    errorElement: <ErrorPage />,
   },
 ]);
 
